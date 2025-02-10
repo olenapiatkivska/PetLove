@@ -1,0 +1,71 @@
+@import 'assets/fonts/fonts.css';
+
+:root {
+  --hover-general: all 400ms ease;
+  --bg-main: #f9f9f9;
+  --dark-color: #262626;
+  --dark-light: #2b2b2a;
+  --white-color: #ffffff;
+  --accent-color: #f6b83d;
+  --hover-color: #fbe7c1;
+  --accent-light: #fff4df;
+  --title-accent: rgba(255, 255, 255, 0.4);
+  --white-light: rgba(255, 255, 255, 0.15);
+  --link-gray: rgba(38, 38, 38, 0.15);
+  --error-color: #ef2447;
+  --placeholder-color: rgba(38, 38, 38, 0.5);
+  --text-input: rgba(38, 38, 38, 0.8);
+  --success-color: #08aa83;
+  --bright-orange: #f9b020;
+  --bg-button: rgba(38, 38, 38, 0.05);
+  --subtitle-color: rgba(43, 43, 42, 0.4);
+  --pets-cards: rgba(38, 38, 38, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--bg-main);
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  outline: none;
+}
