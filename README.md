@@ -71,7 +71,7 @@ Display of the page's favicon
 
 ## Information about the author
 
-- **Ім'я**: Olena Piatkivska
+- **Name**: Olena Piatkivska
 - **Email**: olena.piatkivska@gmail.com
 - **GitHub**: olenapiatkivska
 - **LinkedIn**: https://www.linkedin.com/in/olena-piatkivska/

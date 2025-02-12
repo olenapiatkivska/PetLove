@@ -1,0 +1,35 @@
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Mobile - гумова верстка */
+@media screen and (min-width: 320px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+/* Mobile - адаптивна верстка */
+@media screen and (min-width: 375px) {
+  .container {
+    width: 375px;
+    padding: 0 32px;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
