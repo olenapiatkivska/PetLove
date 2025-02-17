@@ -1,0 +1,53 @@
+.backdropMain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(38, 38, 38, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+}
+
+.modalMain {
+  border-radius: 30px;
+  background-color: #fff;
+  padding: 40px 20px;
+  max-width: 335px;
+  min-height: 100px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: appear 1000ms ease 1;
+}
+
+@media screen and (min-width: 768px) {
+  .modalMain {
+    max-width: 473px;
+  }
+}
+
+.closeButtonMain {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: var(--hover-general);
+}
+.closeIcon {
+  stroke: var(--dark-color);
+}
+
+.closeButtonMain:hover .closeIcon {
+  stroke: var(--accent-color);
+  /* transform: scale(1.2); */
+}

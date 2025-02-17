@@ -1,0 +1,39 @@
+.burgerMenuBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  transition: transform var(--hover-general);
+}
+
+.burgerMenuBtnIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.burgerMenuBtn:hover {
+  transform: scale(1.1);
+}
+
+.homePageBurgerMenu {
+  stroke: #fff;
+}
+.otherPageBurgerMenu {
+  stroke: #000;
+}
+
+@media screen and (min-width: 768px) {
+  .burgerMenuBtnIcon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .burgerMenuContainer {
+    display: none;
+  }
+}

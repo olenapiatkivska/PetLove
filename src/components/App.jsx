@@ -1,20 +1,26 @@
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout.jsx';
+import LoaderMain from './LoaderMain/LoaderMain.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import HomePage from '../pages/HomePage/HomePage.jsx';
-import NewsPage from '../pages/NewsPage/NewsPage.jsx';
-import NoticesPage from '../pages/NoticesPage/NoticesPage.jsx';
-import FriendsPage from '../pages/FriendsPage/FriendsPage.jsx';
 // import PrivateRoute from './PrivateRoute.js';
-// import ProfilePage from '../pages/ProfilePage/ProfilePage.jsx';
-// import AddPetPage from '../pages/AddPetPage/AddPetPage.jsx';
 // import RestrictedRoute from './RestrictedRoute.js';
-// import LoginPage from '../pages/LoginPage/LoginPage.jsx';
-// import RegistrationPage from '../pages/RegistrationPage/RegistrationPage.jsx';
-import NotFoundPage from '../pages/NotFoundPage/NotFoundPage.jsx';
-import { Suspense } from 'react';
-import LoaderMain from './LoaderMain/LoaderMain.jsx';
+
+const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
+const NewsPage = lazy(() => import('../pages/NewsPage/NewsPage.jsx'));
+const NoticesPage = lazy(() => import('../pages/NoticesPage/NoticesPage.jsx'));
+const FriendsPage = lazy(() => import('../pages/FriendsPage/FriendsPage.jsx'));
+
+// const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage.jsx'));
+// const AddPetPage = lazy(() => import('../pages/AddPetPage/AddPetPage.jsx'));
+// const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.jsx'));
+// const RegistrationPage = lazy(() =>
+//   import('../pages/RegistrationPage/RegistrationPage.jsx'),
+// );
+const NotFoundPage = lazy(() =>
+  import('../pages/NotFoundPage/NotFoundPage.jsx'),
+);
 
 function App() {
   return (

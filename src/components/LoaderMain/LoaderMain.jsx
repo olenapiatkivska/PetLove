@@ -12,7 +12,7 @@ const LoaderMain = () => {
         radius={3}
         margin={4}
         speedMultiplier={1.5}
-        visible={true}
+        loading={true}
       />
     </div>
   );

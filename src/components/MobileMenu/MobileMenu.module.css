@@ -1,0 +1,38 @@
+.mobileMenuContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileMenuBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin-left: auto;
+  margin-top: -10px;
+}
+
+.mobileMenuBtnIcon {
+  stroke: #000;
+  width: 32px;
+  height: 32px;
+  transition: transform var(--hover-general);
+}
+
+.mobileMenuBtn:hover .mobileMenuBtnIcon {
+  transform: scale(1.1);
+}
+
+@media screen and (min-width: 768px) {
+  .mobileMenuBtnIcon {
+    width: 36px;
+    height: 36px;
+  }
+}

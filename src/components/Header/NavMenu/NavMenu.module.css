@@ -1,0 +1,36 @@
+.headerNav {
+  display: flex;
+  gap: 10px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 30px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  transition: border var(--hover-general);
+}
+
+.link:hover,
+.link:focus {
+  border: 1px solid var(--white-light);
+}
+
+.homePage {
+  border: 1px solid var(--white-color);
+  color: var(--white-color);
+}
+.otherPage {
+  border: 1px solid var(--link-gray);
+  color: var(--dark-color);
+}
+.activeLink {
+  border: 1px solid var(--accent-color) !important;
+  color: var(--accent-color);
+}

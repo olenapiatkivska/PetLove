@@ -1,0 +1,39 @@
+.headerContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  padding: 24px 0px 22px 0px;
+  margin-top: 10px;
+}
+
+.isHomePage {
+  background-color: var(--accent-color);
+  padding: 24px 20px 22px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .headerContainer {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    padding: 27px 0px 62px 0px;
+    margin-top: 16px;
+  }
+
+  .isHomePage {
+    padding: 27px 32px 62px 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .headerContainer {
+    padding: 27px 32px 32px 32px;
+  }
+
+  .isHomePage {
+    padding: 27px 64px 32px 64px;
+  }
+}
