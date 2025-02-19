@@ -5,7 +5,7 @@ import LoaderMain from './LoaderMain/LoaderMain.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import PrivateRoute from './PrivateRoute.js';
-// import RestrictedRoute from './RestrictedRoute.js';
+import RestrictedRoute from './RestrictedRoute.jsx';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
 const NewsPage = lazy(() => import('../pages/NewsPage/NewsPage.jsx'));
@@ -15,9 +15,9 @@ const FriendsPage = lazy(() => import('../pages/FriendsPage/FriendsPage.jsx'));
 // const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage.jsx'));
 // const AddPetPage = lazy(() => import('../pages/AddPetPage/AddPetPage.jsx'));
 // const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.jsx'));
-// const RegistrationPage = lazy(() =>
-//   import('../pages/RegistrationPage/RegistrationPage.jsx'),
-// );
+const RegistrationPage = lazy(() =>
+  import('../pages/RegistrationPage/RegistrationPage.jsx'),
+);
 const NotFoundPage = lazy(() =>
   import('../pages/NotFoundPage/NotFoundPage.jsx'),
 );
@@ -51,18 +51,20 @@ function App() {
             {/* <Route
               path="/login"
               element={
-                <RestrictedRoute redirecTo="/home" component={<LoginPage />} />
+                <RestrictedRoute redirectTo="/profile" component={LoginPage} />
               }
-            />
+            /> */}
+
             <Route
               path="/register"
               element={
                 <RestrictedRoute
-                  redirecTo="/home"
-                  component={<RegistrationPage />}
+                  redirectTo="/profile"
+                  component={RegistrationPage}
                 />
               }
-            /> */}
+            />
+
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

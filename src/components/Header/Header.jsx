@@ -8,8 +8,8 @@ import css from './Header.module.css';
 import BurgerMenu from './BurgerMenu/BurgerMenu.jsx';
 
 const Header = () => {
-  const tablet = useMediaQuery({ minWidth: 768 });
-  const tabletEnd = useMediaQuery({ maxWidth: 1279.98 });
+  // const tablet = useMediaQuery({ minWidth: 768 });
+  // const tabletEnd = useMediaQuery({ maxWidth: 1279.98 });
   const desctop = useMediaQuery({ minWidth: 1280 });
   const location = useLocation();
   const [isHomePage, setIsHomePage] = useState(false);
