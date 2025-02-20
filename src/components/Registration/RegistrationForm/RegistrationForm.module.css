@@ -62,17 +62,17 @@
 }
 
 .inputError {
-  border-color: var(--error-color) !important;
+  border-color: var(--error-color);
 }
 
 .inputSuccess {
-  border-color: var(--success-color) !important;
+  border-color: var(--success-color);
 }
 
 .iconCheck {
   position: absolute;
   top: 12px;
-  right: 12px;
+  right: 38px;
 }
 
 .errorRegistration {
@@ -83,6 +83,15 @@
   color: var(--error-color);
   /* text-align: start; */
   margin-top: 2px;
+}
+
+.passwordBtnEye {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 .registerBtn {

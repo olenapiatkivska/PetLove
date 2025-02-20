@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,13 +10,15 @@ import Container from '../../Container/Container.jsx';
 import { Link } from 'react-router-dom';
 
 const RegistrationForm = () => {
-  //   const [showPassword, setShowPassword] = useState(false);
-  //   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const dispatch = useDispatch();
+
+  const handleShowPassword = () => setShowPassword(prev => !prev);
+  const handleShowConfirmPassword = () => setShowConfirmPassword(prev => !prev);
 
   const schemaRegister = yup.object().shape({
     name: yup.string().required('Name is required'),
-
     email: yup
       .string()
       .matches(
@@ -24,11 +26,14 @@ const RegistrationForm = () => {
         'Invalid email format',
       )
       .required('Email is required'),
-
     password: yup
       .string()
       .min(7, 'Password must be at least 7 characters')
       .required('Password is required'),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('password'), null], 'Passwords must match')
+      .required(),
   });
 
   const {
@@ -85,7 +90,7 @@ const RegistrationForm = () => {
                     </svg>
                   </span>
                 )}
-                {!errors.name && (
+                {!errors.name && touchedFields.name && (
                   <span className={css.iconCheck}>
                     <svg width={18} height={18}>
                       <use href={`${sprite}#icon-check`} />
@@ -103,9 +108,9 @@ const RegistrationForm = () => {
                   placeholder="Email"
                   className={`
             ${css.inputRegistration} ${
-                    errors.name
+                    errors.email
                       ? css.inputError
-                      : touchedFields.name
+                      : touchedFields.email
                       ? css.inputSuccess
                       : ''
                   }`}
@@ -118,7 +123,7 @@ const RegistrationForm = () => {
                     </svg>
                   </span>
                 )}
-                {!errors.email && (
+                {!errors.email && touchedFields.email && (
                   <span className={css.iconCheck}>
                     <svg width={18} height={18}>
                       <use href={`${sprite}#icon-check`} />
@@ -134,13 +139,13 @@ const RegistrationForm = () => {
 
               <label className={css.inputRegistrationLabel}>
                 <input
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   className={`
             ${css.inputRegistration} ${
-                    errors.name
+                    errors.password
                       ? css.inputError
-                      : touchedFields.name
+                      : touchedFields.password
                       ? css.inputSuccess
                       : ''
                   }`}
@@ -153,7 +158,7 @@ const RegistrationForm = () => {
                     </svg>
                   </span>
                 )}
-                {!errors.password && (
+                {!errors.password && touchedFields.password && (
                   <span className={css.iconCheck}>
                     <svg width={18} height={18}>
                       <use href={`${sprite}#icon-check`} />
@@ -165,17 +170,33 @@ const RegistrationForm = () => {
                     {errors.password.message}
                   </p>
                 )}
+
+                <button
+                  className={css.passwordBtnEye}
+                  type="button"
+                  onClick={handleShowPassword}
+                >
+                  <svg width={18} height={18}>
+                    <use
+                      href={
+                        showPassword
+                          ? `${sprite}#icon-eye`
+                          : `${sprite}#icon-eye-off`
+                      }
+                    />
+                  </svg>
+                </button>
               </label>
 
               <label className={css.inputRegistrationLabel}>
                 <input
-                  type="password"
+                  type={showConfirmPassword ? 'text' : 'password'}
                   placeholder="Confirm password"
                   className={`
             ${css.inputRegistration} ${
-                    errors.name
+                    errors.confirmPassword
                       ? css.inputError
-                      : touchedFields.name
+                      : touchedFields.confirmPassword
                       ? css.inputSuccess
                       : ''
                   }`}
@@ -188,7 +209,7 @@ const RegistrationForm = () => {
                     </svg>
                   </span>
                 )}
-                {!errors.confirmPassword && (
+                {!errors.confirmPassword && touchedFields.confirmPassword && (
                   <span className={css.iconCheck}>
                     <svg width={18} height={18}>
                       <use href={`${sprite}#icon-check`} />
@@ -200,6 +221,22 @@ const RegistrationForm = () => {
                     {errors.confirmPassword.message}
                   </p>
                 )}
+
+                <button
+                  className={css.passwordBtnEye}
+                  type="button"
+                  onClick={handleShowConfirmPassword}
+                >
+                  <svg width={18} height={18}>
+                    <use
+                      href={
+                        showConfirmPassword
+                          ? `${sprite}#icon-eye`
+                          : `${sprite}#icon-eye-off`
+                      }
+                    />
+                  </svg>
+                </button>
               </label>
             </div>
 
