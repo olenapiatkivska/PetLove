@@ -81,7 +81,6 @@
   line-height: 1.2;
   letter-spacing: -0.03em;
   color: var(--error-color);
-  /* text-align: start; */
   margin-top: 2px;
 }
 
@@ -135,4 +134,69 @@
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .registrationFormContainer {
+    margin-top: 16px;
+    padding: 30px 140px;
+    border-radius: 60px;
+  }
+  .registrationFormTitle {
+    font-size: 54px;
+    margin-bottom: 16px;
+  }
+  .registrationFormText {
+    font-size: 18px;
+    line-height: 1.22;
+    margin-bottom: 32px;
+  }
+  .inputRegistrationWrapper {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .inputRegistration {
+    padding: 16px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .inputRegistration::placeholder {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .iconCheck {
+    width: 22px;
+    height: 22px;
+    top: 15px;
+    right: 50px;
+  }
+  .errorRegistration {
+    font-size: 12px;
+    line-height: 1.17;
+    margin-top: 4px;
+  }
+  .passwordBtnEye {
+    width: 22px;
+    height: 22px;
+    top: 15px;
+    right: 16px;
+  }
+  .registerBtn {
+    padding: 16px 157px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .registrationLink {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .registrationFormContainer {
+    margin-top: 0px;
+    padding: 77px 84px;
+    width: 592px;
+    height: 654px;
+  }
 }

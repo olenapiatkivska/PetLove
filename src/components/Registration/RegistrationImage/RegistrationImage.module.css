@@ -1,0 +1,111 @@
+.registrationImageContainer {
+  position: relative;
+  background-color: var(--accent-color);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.registrationPicture {
+  position: relative;
+  z-index: 1;
+}
+
+.registrationImageSvg {
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  transform: scale(1.6);
+  z-index: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .registrationImageContainer {
+    border-radius: 60px;
+  }
+  .registrationPicture {
+    right: -250px;
+  }
+  .registrationImageSvg {
+    bottom: -24px;
+    left: 224px;
+    transform: scale(2.8);
+  }
+
+  .messageContainer {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+    width: 294px;
+    height: 121px;
+    padding: 16px;
+    border-radius: 20px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    z-index: 2;
+  }
+  .messageContainerImgWrapp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    min-width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent-light);
+  }
+  .messageNameBirthday {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .messageContainerName {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    color: #f6b83d;
+  }
+  .messageContainerBirthday {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.02em;
+    color: rgba(38, 38, 38, 0.5);
+  }
+  .messageContainerBirthday span {
+    color: var(--dark-color);
+  }
+  .messageContainerComment {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16667;
+    letter-spacing: -0.02em;
+    color: rgba(38, 38, 38, 0.8);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .registrationImageContainer {
+    width: 592px;
+    height: 654px;
+  }
+  .registrationPicture {
+    right: unset;
+    left: 40px;
+    bottom: -22px;
+  }
+  .registrationImageSvg {
+    transform: scale(4);
+    bottom: unset;
+    top: 278px;
+    left: 134px;
+  }
+  .messageContainer {
+    left: 61px;
+    bottom: 97px;
+  }
+}
