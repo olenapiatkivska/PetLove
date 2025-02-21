@@ -6,13 +6,16 @@ import { useMediaQuery } from 'react-responsive';
 import NavMenu from './NavMenu/NavMenu.jsx';
 import css from './Header.module.css';
 import BurgerMenu from './BurgerMenu/BurgerMenu.jsx';
+import { useAuth } from '../../hooks/useAuth.js';
+import AuthNav from '../AuthNav/AuthNav.jsx';
 
 const Header = () => {
-  // const tablet = useMediaQuery({ minWidth: 768 });
-  // const tabletEnd = useMediaQuery({ maxWidth: 1279.98 });
+  const tablet = useMediaQuery({ minWidth: 768 });
+  const tabletEnd = useMediaQuery({ maxWidth: 1279.98 });
   const desctop = useMediaQuery({ minWidth: 1280 });
   const location = useLocation();
   const [isHomePage, setIsHomePage] = useState(false);
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     setIsHomePage(location.pathname === '/home' || location.pathname === '/');
@@ -28,7 +31,11 @@ const Header = () => {
         >
           <Logo isHomePage={isHomePage} />
           {desctop && <NavMenu isHomePage={isHomePage} />}
-          <div>
+          <div className={css.authNavWrapp}>
+            {((!isLoggedIn && !isHomePage && tablet && tabletEnd) ||
+              (!isLoggedIn && desctop)) && <AuthNav />}
+            {/* {isLoggedIn && !isHomePage && tablet && <LogoutHeader/>} */}
+            {/* {isLoggedIn && <UserProfileBtn isHomepage={isHomepage} />} */}
             <BurgerMenu isHomePage={isHomePage} />
           </div>
         </div>

@@ -1,23 +1,20 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
-import { register as registerUser } from '../../../redux/auth/operations.js';
 import sprite from '../../../assets/icons/icons.svg';
-import css from './RegistrationForm.module.css';
 import { Link } from 'react-router-dom';
+import { logIn } from '../../../redux/auth/operations.js';
+import css from './LoginForm.module.css';
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const dispatch = useDispatch();
 
   const handleShowPassword = () => setShowPassword(prev => !prev);
-  const handleShowConfirmPassword = () => setShowConfirmPassword(prev => !prev);
 
   const schemaRegister = yup.object().shape({
-    name: yup.string().required('Name is required'),
     email: yup
       .string()
       .matches(
@@ -29,10 +26,6 @@ const RegistrationForm = () => {
       .string()
       .min(7, 'Password must be at least 7 characters')
       .required('Password is required'),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref('password'), null], 'Passwords must match')
-      .required(),
   });
 
   const {
@@ -42,63 +35,27 @@ const RegistrationForm = () => {
   } = useForm({
     resolver: yupResolver(schemaRegister),
     defaultValues: {
-      name: '',
       email: '',
       password: '',
-      confirmPassword: '',
     },
   });
 
   const onSubmit = data => {
-    const { name, email, password } = data;
-    dispatch(registerUser({ name, email, password }));
+    const { email, password } = data;
+    dispatch(logIn({ email, password }));
   };
-
   return (
     <>
-      <div className={css.registrationFormContainer}>
+      <div className={css.loginFormContainer}>
         <div>
-          <h1 className={css.registrationFormTitle}>Registration</h1>
+          <h1 className={css.registrationFormTitle}>Log in</h1>
           <p className={css.registrationFormText}>
-            Thank you for your interest in our platform.
+            Welcome! Please enter your credentials to login to the platform:
           </p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={css.inputRegistrationWrapper}>
-            <label className={css.inputRegistrationLabel}>
-              <input
-                type="text"
-                placeholder="Name"
-                className={`
-            ${css.inputRegistration} ${
-                  errors.name
-                    ? css.inputError
-                    : touchedFields.name
-                    ? css.inputSuccess
-                    : ''
-                }`}
-                {...register('name')}
-              />
-              {errors.name && (
-                <span className={css.iconCheck}>
-                  <svg width={18} height={18}>
-                    <use href={`${sprite}#icon-x-red`} />
-                  </svg>
-                </span>
-              )}
-              {!errors.name && touchedFields.name && (
-                <span className={css.iconCheck}>
-                  <svg width={18} height={18}>
-                    <use href={`${sprite}#icon-check`} />
-                  </svg>
-                </span>
-              )}
-              {errors.name && (
-                <p className={css.errorRegistration}>{errors.name.message}</p>
-              )}
-            </label>
-
             <label className={css.inputRegistrationLabel}>
               <input
                 type="email"
@@ -182,68 +139,17 @@ const RegistrationForm = () => {
                 </svg>
               </button>
             </label>
-
-            <label className={css.inputRegistrationLabel}>
-              <input
-                type={showConfirmPassword ? 'text' : 'password'}
-                placeholder="Confirm password"
-                className={`
-            ${css.inputRegistration} ${
-                  errors.confirmPassword
-                    ? css.inputError
-                    : touchedFields.confirmPassword
-                    ? css.inputSuccess
-                    : ''
-                }`}
-                {...register('confirmPassword')}
-              />
-              {errors.confirmPassword && (
-                <span className={css.iconCheck}>
-                  <svg width={18} height={18}>
-                    <use href={`${sprite}#icon-x-red`} />
-                  </svg>
-                </span>
-              )}
-              {!errors.confirmPassword && touchedFields.confirmPassword && (
-                <span className={css.iconCheck}>
-                  <svg width={18} height={18}>
-                    <use href={`${sprite}#icon-check`} />
-                  </svg>
-                </span>
-              )}
-              {errors.confirmPassword && (
-                <p className={css.errorRegistration}>
-                  {errors.confirmPassword.message}
-                </p>
-              )}
-
-              <button
-                className={css.passwordBtnEye}
-                type="button"
-                onClick={handleShowConfirmPassword}
-              >
-                <svg width={18} height={18}>
-                  <use
-                    href={
-                      showConfirmPassword
-                        ? `${sprite}#icon-eye`
-                        : `${sprite}#icon-eye-off`
-                    }
-                  />
-                </svg>
-              </button>
-            </label>
           </div>
 
           <button className={css.registerBtn} type="submit">
-            Registration
+            Log In
           </button>
         </form>
 
         <p className={css.registrationLink}>
-          Already have an account?&nbsp;
-          <Link className={css.registrationLinkLogin} to="/login">
-            Login
+          Don&apos;t have an account?&nbsp;
+          <Link className={css.registrationLinkLogin} to="/register">
+            Register
           </Link>
         </p>
       </div>
@@ -251,4 +157,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;

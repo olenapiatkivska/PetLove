@@ -14,7 +14,7 @@ const FriendsPage = lazy(() => import('../pages/FriendsPage/FriendsPage.jsx'));
 
 // const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage.jsx'));
 // const AddPetPage = lazy(() => import('../pages/AddPetPage/AddPetPage.jsx'));
-// const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.jsx'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.jsx'));
 const RegistrationPage = lazy(() =>
   import('../pages/RegistrationPage/RegistrationPage.jsx'),
 );
@@ -48,12 +48,12 @@ function App() {
                 <PrivateRoute redirecTo="/home" component={<AddPetPage />} />
               }
             /> */}
-            {/* <Route
+            <Route
               path="/login"
               element={
                 <RestrictedRoute redirectTo="/profile" component={LoginPage} />
               }
-            /> */}
+            />
 
             <Route
               path="/register"

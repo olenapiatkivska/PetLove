@@ -1,0 +1,72 @@
+.btnAuthContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.btnAuthLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 178px;
+  height: 42px;
+  border-radius: 30px;
+  border: 1px solid var(--white-color);
+  background-color: var(--accent-color);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  transition: var(--hover-general);
+}
+
+.btnAuthLogin:hover,
+.btnAuthLogin:focus {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.btnAuthRegister {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 178px;
+  height: 42px;
+  border-radius: 30px;
+  background-color: var(--accent-light);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  transition: var(--hover-general);
+}
+
+.btnAuthRegister:hover,
+.btnAuthRegister:focus {
+  background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .btnAuthContainer {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .btnAuthLogin {
+    width: 119px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .btnAuthRegister {
+    width: 149px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}

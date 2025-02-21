@@ -2,6 +2,7 @@ import Modal from '../Modal/Modal.jsx';
 import sprite from '../../assets/icons/icons.svg';
 import css from './MobileMenu.module.css';
 import NavMenuMobile from './NavMenuMobile/NavMenuMobile.jsx';
+import AuthNav from '../AuthNav/AuthNav.jsx';
 
 const MobileMenu = ({ setIsShowMobileMenu, isHomePage }) => {
   return (
@@ -13,16 +14,23 @@ const MobileMenu = ({ setIsShowMobileMenu, isHomePage }) => {
             type="button"
             onClick={() => setIsShowMobileMenu(false)}
           >
-            <svg className={css.mobileMenuBtnIcon} width={32} height={32}>
+            <svg
+              className={`${css.mobileMenuBtnIcon} ${
+                isHomePage ? css.dark : css.light
+              }`}
+              width={32}
+              height={32}
+            >
               <use href={`${sprite}#icon-close`} />
             </svg>
           </button>
-        </div>
 
-        <NavMenuMobile
-          isHomePage={isHomePage}
-          setIsShowMobileMenu={setIsShowMobileMenu}
-        />
+          <NavMenuMobile
+            isHomePage={isHomePage}
+            setIsShowMobileMenu={setIsShowMobileMenu}
+          />
+          <AuthNav setIsShowMobileMenu={setIsShowMobileMenu} />
+        </div>
       </Modal>
     </>
   );
