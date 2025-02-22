@@ -1,0 +1,76 @@
+.imgWrapp {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--accent-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.imgWrapp img {
+  width: 44px;
+  height: 44px;
+}
+
+.modalLogoutText {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 28px;
+}
+
+.btnWrapp {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.btnYes {
+  display: flex;
+  padding: 14px 57px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background: #f6b83d;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: #fff;
+  border: none;
+  outline: none;
+  transition: var(--hover-general);
+}
+
+.btnYes:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.btnCancel {
+  display: flex;
+  padding: 14px 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background: rgba(38, 38, 38, 0.05);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: #262626;
+  border: none;
+  outline: none;
+  transition: var(--hover-general);
+}
+
+.btnCancel:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}

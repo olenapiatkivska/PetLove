@@ -16,13 +16,21 @@ const clearAuthHeader = () => {
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
+    console.log('Sending data:', credentials);
     try {
       const res = await axios.post('/users/signup', credentials);
       setAuthHeader(res.data.token);
       toast.success(`Welcome ${res?.data?.name}`);
       return res.data;
     } catch (error) {
-      toast.error('Error, Invalid data');
+      console.error('Registration error:', error.response?.data || error);
+
+      if (error.response?.status === 409) {
+        toast.error('This email is already in use. Try logging in.');
+      } else {
+        toast.error(error.response?.data?.message || 'Error, Invalid data');
+      }
+
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -52,3 +60,23 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.get('/users/current/full');
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);

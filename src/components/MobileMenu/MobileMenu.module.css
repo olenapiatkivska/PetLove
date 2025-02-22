@@ -38,9 +38,33 @@
   transform: scale(1.1);
 }
 
+.logoutBtn {
+  display: block;
+  width: 100%;
+  padding: 12px 60px;
+  background-color: var(--hover-color);
+  border: none;
+  border-radius: 30px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  transition: var(--hover-general);
+}
+
+.logoutBtn:hover {
+  color: var(--white-color);
+}
+
 @media screen and (min-width: 768px) {
   .mobileMenuBtnIcon {
     width: 36px;
     height: 36px;
   }
+  /* .logoutBtn {
+    display: none;
+  } */
 }

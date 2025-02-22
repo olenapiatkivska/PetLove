@@ -8,6 +8,7 @@ import css from './Header.module.css';
 import BurgerMenu from './BurgerMenu/BurgerMenu.jsx';
 import { useAuth } from '../../hooks/useAuth.js';
 import AuthNav from '../AuthNav/AuthNav.jsx';
+import LogoutHeader from './LogoutHeader/LogoutHeader.jsx';
 
 const Header = () => {
   const tablet = useMediaQuery({ minWidth: 768 });
@@ -34,7 +35,7 @@ const Header = () => {
           <div className={css.authNavWrapp}>
             {((!isLoggedIn && !isHomePage && tablet && tabletEnd) ||
               (!isLoggedIn && desctop)) && <AuthNav />}
-            {/* {isLoggedIn && !isHomePage && tablet && <LogoutHeader/>} */}
+            {isLoggedIn && !isHomePage && tablet && <LogoutHeader />}
             {/* {isLoggedIn && <UserProfileBtn isHomepage={isHomepage} />} */}
             <BurgerMenu isHomePage={isHomePage} />
           </div>
