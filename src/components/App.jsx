@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout.jsx';
 import LoaderMain from './LoaderMain/LoaderMain.jsx';
@@ -6,6 +6,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './PrivateRoute.jsx';
 import RestrictedRoute from './RestrictedRoute.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsRefreshing } from '../redux/auth/authSelectors.js';
+import { refreshUser } from '../redux/auth/operations.js';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
 const NewsPage = lazy(() => import('../pages/NewsPage/NewsPage.jsx'));
@@ -26,7 +29,16 @@ const NotFoundPage = lazy(() =>
 );
 
 function App() {
-  return (
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <LoaderMain />
+  ) : (
     <>
       <Suspense fallback={<LoaderMain />}>
         <Routes>

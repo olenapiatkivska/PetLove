@@ -40,6 +40,7 @@ export const authSlice = createSlice({
         state.token = payload.token;
         state.isLoggedIn = true;
         state.isLoading = false;
+        localStorage.setItem('token', payload.token);
       })
       .addCase(logIn.rejected, state => {
         state.isLoading = false;
@@ -55,25 +56,29 @@ export const authSlice = createSlice({
         state.pets = [];
         state.noticesViewed = [];
         state.noticesFavorites = [];
+        localStorage.removeItem('token');
       })
       .addCase(logOut.rejected, state => {
         state.isLoading = false;
       })
       .addCase(refreshUser.pending, state => {
+        console.log('Refreshing user...');
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
+        console.log('User refreshed successfully:', payload);
         state.user.name = payload.name;
         state.user.email = payload.email;
-        state.user.phome = payload.phome;
+        state.user.phone = payload.phone;
         state.user.avatar = payload.avatar;
-        state.user.noticesFavorites = payload.noticesFavorites;
-        state.user.noticesViewed = payload.noticesViewed;
-        state.user.pets = payload.pets;
-        state.user.isLoggedIn = true;
-        state.user.isRefreshing = false;
+        state.noticesFavorites = payload.noticesFavorites;
+        state.noticesViewed = payload.noticesViewed;
+        state.pets = payload.pets;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
-      .addCase(refreshUser.rejected, state => {
+      .addCase(refreshUser.rejected, (state, { payload }) => {
+        console.log('User refresh failed:', payload);
         state.isRefreshing = false;
       });
   },
