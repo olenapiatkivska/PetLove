@@ -10,7 +10,6 @@ import LoaderMain from '../../components/LoaderMain/LoaderMain.jsx';
 const FriendsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoadingFriends);
-  // const isError = useSelector(selectIsErrorFriends);
 
   useEffect(() => {
     dispatch(fetchFriends());
