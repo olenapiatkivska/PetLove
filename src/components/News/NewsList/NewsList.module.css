@@ -1,3 +1,13 @@
+.newsListText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--dark-color);
+  margin: 80px 0;
+}
+
 .newsList {
   display: flex;
   flex-direction: column;
@@ -14,6 +24,11 @@
 }
 
 @media screen and (min-width: 768px) {
+  .newsListText {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
   .newsList {
     flex-direction: row;
     flex-wrap: wrap;
@@ -31,6 +46,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .newsListText {
+    margin-top: 140px;
+  }
+
   .newsList {
     row-gap: 40px;
     column-gap: 35px;

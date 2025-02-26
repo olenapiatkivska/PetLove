@@ -80,3 +80,83 @@ export const refreshUser = createAsyncThunk(
     }
   },
 );
+
+export const editUser = createAsyncThunk(
+  'auth/edit',
+  async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    let persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.patch('/users/current/edit');
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const addPet = createAsyncThunk(
+  'auth/addPet',
+  async (petData, thunkAPI) => {
+    const state = thunkAPI.getState();
+    let persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.post('/users/current/pets/add', petData);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const removePet = createAsyncThunk(
+  'auth/removePet',
+  async (id, thunkAPI) => {
+    const state = thunkAPI.getState();
+    let persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.delete(`/users/current/pets/remove/${id}`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const viewedPet = createAsyncThunk(
+  'auth/viewedPet',
+  async (id, thunkAPI) => {
+    const state = thunkAPI.getState();
+    let persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      setAuthHeader(persistedToken);
+      const res = await axios.get(`/notices/${id}`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);

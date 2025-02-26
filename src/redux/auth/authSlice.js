@@ -1,5 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, refreshUser, register } from './operations.js';
+import {
+  addPet,
+  editUser,
+  logIn,
+  logOut,
+  refreshUser,
+  register,
+  removePet,
+} from './operations.js';
 
 const initialState = {
   user: { name: null, email: null, phone: null, avatar: null },
@@ -80,6 +88,44 @@ export const authSlice = createSlice({
       .addCase(refreshUser.rejected, (state, { payload }) => {
         console.log('User refresh failed:', payload);
         state.isRefreshing = false;
+      })
+      .addCase(editUser.pending, state => {
+        state.isLoading = true;
+        state.isRefreshing = true;
+      })
+      .addCase(editUser.fulfilled, (state, { payload }) => {
+        state.user.name = payload.name;
+        state.user.email = payload.email;
+        state.user.phone = payload.phone;
+        state.user.avatar = payload.avatar;
+        state.isLoading = false;
+        state.isRefreshing = false;
+      })
+      .addCase(editUser.rejected, state => {
+        state.isLoading = false;
+        state.isRefreshing = false;
+      })
+      .addCase(addPet.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addPet.fulfilled, (state, { payload }) => {
+        state.pets.push(payload); // Додаємо нову тварину
+        // state.pets = payload.pets;
+        state.isLoading = false;
+      })
+      .addCase(addPet.rejected, state => {
+        state.isLoading = false;
+      })
+      .addCase(removePet.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(removePet.fulfilled, (state, { payload }) => {
+        state.pets = state.pets.filter(pet => pet.id !== payload.id); // Видаляємо за ID
+        // state.pets = payload.pets;
+        state.isLoading = false;
+      })
+      .addCase(removePet.rejected, state => {
+        state.isLoading = false;
       });
   },
 });

@@ -14,7 +14,7 @@ const NewsList = ({ setCurrentPage, currentPage }) => {
   return (
     <>
       {news.length === 0 && (
-        <p>
+        <p className={css.newsListText}>
           Sorry, <b>no find</b> any news with these search parameter
         </p>
       )}
