@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import ModalMain from '../../ModalMain/ModalMain.jsx';
 import { NavLink } from 'react-router-dom';
+import catNotification from '../../../assets/images/comment-register.png';
+import css from './FirstItemNotification.module.css';
 
 const FirstItemNotification = ({
   setShowFirstNotification,
@@ -33,15 +35,21 @@ const FirstItemNotification = ({
   return (
     <>
       <ModalMain fn={setShowFirstNotification}>
-        <div>
-          <img />
-          <h3>Congrats</h3>
-          <p>
-            The first fluff in the favorites! May your friendship be the
-            happiest and filled with fun.
-          </p>
+        <div className={css.firstItemNotificationWrapp}>
+          <div className={css.catNotificationWrapp}>
+            <img src={catNotification} alt="Animated cat" />
+          </div>
+
+          <h3 className={css.firstItemNotificationTitle}>Congrats</h3>
         </div>
-        <NavLink to={'/profile'}>Go to profile</NavLink>
+        <p className={css.firstItemNotificationText}>
+          The first fluff in the favorites! May your friendship be the happiest
+          and filled with fun.
+        </p>
+
+        <NavLink className={css.btnGoToProfile} to={'/profile'}>
+          Go to profile
+        </NavLink>
       </ModalMain>
     </>
   );

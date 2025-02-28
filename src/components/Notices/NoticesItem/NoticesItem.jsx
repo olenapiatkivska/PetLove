@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../../../hooks/useAuth.js';
 import ModalNotice from '../../Notices/ModalNotice/ModalNotice.jsx';
 import { viewedPet } from '../../../redux/auth/operations.js';
+import css from './NoticesItem.module.css';
 
 const NoticesItem = ({
   notice,
@@ -85,40 +86,64 @@ const NoticesItem = ({
   return (
     <>
       {showDetails && <ModalNotice />}
-      <div>
-        <img src={imgURL} width={287} height={178} alt={title} />
-        <h3>{title}</h3>
-        <span>{popularity}</span>
-        <ul>
-          {details.map(({ label, value }) => (
-            <li key={label}>
-              <p>
-                {label} <span>{value}</span>
-              </p>
-            </li>
-          ))}
-        </ul>
-        <p>{comment}</p>
-        <p>{price}</p>
-
+      <li
+        className={`${css.noticesItem} ${isViewedPage ? css.viewedPage : ''}`}
+      >
         <div>
-          <button type="button" onClick={handleLearnMore}>
-            Learn more
-          </button>
-          <button
-            type="button"
-            onClick={isFavorite ? handleRemoveFavorites : handleAddFavorites}
+          <div
+            className={`${css.noticesItemImgWrapp} ${
+              isViewedPage ? css.viewedPage : ''
+            }`}
           >
-            <svg width={18} height={18}>
-              <use
-                href={
-                  isFavorite ? `${sprite}#icon-trash` : `${sprite}#icon-heart`
-                }
-              />
-            </svg>
-          </button>
+            <img src={imgURL} width={287} height={178} alt={title} />
+          </div>
+          <div className={css.titlePopularityWrapp}>
+            <h3 className={css.noticesItemTitle}>{title}</h3>
+            <span className={css.noticesItemPopularity}>
+              <svg width={16} height={16}>
+                <use href={`${sprite}#icon-star`} />
+              </svg>{' '}
+              {popularity}
+            </span>
+          </div>
+          <ul className={css.noticesItemDetails}>
+            {details.map(({ label, value }) => (
+              <li className={css.noticesItemDetailsItem} key={label}>
+                <p>{label}</p>
+                <span>{value}</span>
+              </li>
+            ))}
+          </ul>
+          <p className={css.noticesItemComment}>{comment}</p>
+
+          {price !== undefined && price !== null && (
+            <p className={css.noticesItemPrice}>${price}</p>
+          )}
+
+          <div className={css.noticesItemBtnWrapp}>
+            <button
+              className={css.noticesItemLearnMore}
+              type="button"
+              onClick={handleLearnMore}
+            >
+              Learn more
+            </button>
+            <button
+              className={css.noticesItemFavorite}
+              type="button"
+              onClick={isFavorite ? handleRemoveFavorites : handleAddFavorites}
+            >
+              <svg width={18} height={18}>
+                <use
+                  href={
+                    isFavorite ? `${sprite}#icon-trash` : `${sprite}#icon-heart`
+                  }
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
+      </li>
     </>
   );
 };

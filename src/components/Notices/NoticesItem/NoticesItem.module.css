@@ -1,0 +1,230 @@
+.noticesItem {
+  padding: 24px;
+  border-radius: 16px;
+  background-color: var(--white-color);
+}
+
+.noticesItemImgWrapp {
+  width: 287px;
+  height: 178px;
+  margin-bottom: 24px;
+}
+
+.noticesItemImgWrapp img {
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.titlePopularityWrapp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.noticesItemTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--dark-color);
+}
+
+.noticesItemPopularity {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--dark-color);
+}
+
+.noticesItemDetails {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 16px;
+}
+.noticesItemDetailsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 2px;
+}
+
+.noticesItemDetailsItem p {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--placeholder-color);
+}
+
+.noticesItemDetailsItem span {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  color: var(--dark-color);
+}
+.noticesItemComment {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: var(--dark-color);
+  margin-bottom: 16px;
+}
+
+.noticesItemPrice {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--dark-color);
+}
+
+.noticesItemBtnWrapp {
+  display: flex;
+  gap: 10px;
+}
+
+.noticesItemLearnMore {
+  display: flex;
+  width: 231px;
+  padding: 14px 60px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background: var(--accent-color);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--white-color);
+  border: none;
+  outline: none;
+  transition: var(--hover-general);
+}
+
+.noticesItemLearnMore:hover {
+  background-color: var(--bright-orange);
+}
+
+.noticesItemFavorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 46px;
+  min-height: 46px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--accent-light);
+  border: none;
+  outline: none;
+  transition: var(--hover-general);
+}
+
+.noticesItemFavorite svg {
+  fill: none;
+  stroke: var(--accent-color);
+}
+.noticesItemFavorite:hover {
+  background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .noticesItem {
+    position: relative;
+    width: 342px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .noticesItemImgWrapp {
+    width: 294px;
+    height: 178px;
+    margin-bottom: 24px;
+  }
+
+  .viewedPage .noticesItemImgWrapp {
+    width: 314px;
+    height: 162px;
+    margin-bottom: 14px;
+  }
+
+  .noticesItemDetails {
+    gap: 16px;
+  }
+
+  .noticesItemComment {
+    margin-bottom: 24px;
+  }
+
+  .noticesItemPrice {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .noticesItemBtnWrapp {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 0;
+  }
+
+  .noticesItemLearnMore {
+    width: 236px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .noticesItemFavorite {
+    min-width: 48px;
+    min-height: 48px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .noticesItem {
+    width: 363px;
+  }
+
+  .viewedPage {
+    width: 320px;
+  }
+  .noticesItemImgWrapp {
+    width: 315px;
+  }
+
+  .viewedPage .noticesItemImgWrapp {
+    width: 292px;
+  }
+
+  .noticesItemTitle {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .noticesItemPopularity {
+    line-height: 1.43;
+  }
+
+  .noticesItemDetails {
+    gap: 20px;
+  }
+  .noticesItemLearnMore {
+    width: 257px;
+  }
+}

@@ -8,6 +8,7 @@ import {
 } from '../../../redux/notices/operations.js';
 import ModalAttention from '../ModalAttention/ModalAttention.jsx';
 import FirstItemNotification from '../FirstItemNotification/FirstItemNotification.jsx';
+import css from './NoticesList.module.css';
 
 const NoticesList = () => {
   const notices = useSelector(selectNotices);
@@ -46,9 +47,20 @@ const NoticesList = () => {
       )}
 
       {
-        <ul>
+        <ul className={css.noticesList}>
           {notices?.map(notice => (
-            <li key={notice?._id}>
+            <NoticesItem
+              key={notice?._id}
+              notice={notice}
+              setShowAttention={setShowAttention}
+              setShowFirstNotification={setShowFirstNotification}
+              onAddFavorites={handleAddFavorites}
+              onRemoveFavorites={handleRemoveFavorites}
+            />
+          ))}
+
+          {/* {notices?.map(notice => (
+            <li className={css.noticesItem} key={notice?._id}>
               <NoticesItem
                 notice={notice}
                 setShowAttention={setShowAttention}
@@ -57,7 +69,7 @@ const NoticesList = () => {
                 onRemoveFavorites={handleRemoveFavorites}
               />
             </li>
-          ))}
+          ))} */}
         </ul>
       }
     </>

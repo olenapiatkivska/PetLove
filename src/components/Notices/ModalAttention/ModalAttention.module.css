@@ -1,0 +1,119 @@
+.modalAttentionWrapp {
+  width: calc(100dvw - 40px);
+  max-width: 295px;
+  text-align: center;
+}
+.dogModalAttentionWrapp {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.dogModalAttentionWrapp img {
+  width: 44px;
+  height: 44px;
+}
+
+.modalAttentionTitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent-color);
+  margin: 20px 0;
+}
+.modalAttentionText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--dark-light);
+}
+
+.modalAttentionBtnWrapp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.modalAttentionLogIn {
+  display: flex;
+  width: 135px;
+  height: 42px;
+  padding: 12px 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-color);
+  border-radius: 30px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: #fff;
+  outline: none;
+  border: none;
+  transition: var(--hover-general);
+}
+
+.modalAttentionLogIn:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.modalAttentionRegistr {
+  border-radius: 30px;
+  padding: 12px 24px;
+  width: 129px;
+  height: 42px;
+  background-color: #fff4df;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.03em;
+  color: #f6b83d;
+  outline: none;
+  border: none;
+  transition: var(--hover-general);
+}
+
+.modalAttentionRegistr:hover {
+  background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .modalAttentionWrapp {
+    max-width: 346px;
+    margin: 0 auto;
+  }
+
+  .dogModalAttentionTitle {
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+  .modalAttentionBtnWrapp {
+    margin-top: 28px;
+  }
+  .modalAttentionLogIn {
+    width: 140px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .modalAttentionRegistr {
+    width: 140px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
