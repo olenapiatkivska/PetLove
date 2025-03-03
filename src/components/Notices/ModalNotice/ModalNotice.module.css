@@ -1,0 +1,79 @@
+.imgWrapp {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.imgWrapp img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.imgWrapp span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  padding: 8px 14px;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  border-radius: 30px;
+  background-color: var(--accent-light);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: var(--accent-color);
+  text-transform: capitalize;
+}
+
+.modalNoticeTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--dark-light);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.modalNoticeComment {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: var(--dark-light);
+  margin-top: 16px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.modalNoticePrice {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--dark-light);
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .imgWrapp {
+    width: 150px;
+    height: 150px;
+  }
+
+  .imgWrapp span {
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.29;
+  }
+  .modalNoticeTitle {
+    font-size: 18px;
+    line-height: 1.33;
+    margin-top: 16px;
+  }
+  .modalNoticePrice {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}

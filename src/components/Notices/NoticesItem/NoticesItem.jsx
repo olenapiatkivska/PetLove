@@ -85,7 +85,16 @@ const NoticesItem = ({
 
   return (
     <>
-      {showDetails && <ModalNotice />}
+      {showDetails && (
+        <ModalNotice
+          setShowDetails={setShowDetails}
+          notice={notice}
+          showDetails={showDetails}
+          isFavorite={isFavorite}
+          setIsFavorite={setIsFavorite}
+          setShowFirstNotification={setShowFirstNotification}
+        />
+      )}
       <li
         className={`${css.noticesItem} ${isViewedPage ? css.viewedPage : ''}`}
       >
