@@ -1,0 +1,92 @@
+.searchField {
+  position: relative;
+}
+
+.searchFieldInput {
+  width: 100%;
+  height: 42px;
+  padding: 12px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  background-color: #fff;
+  outline: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+}
+.searchFieldInput:hover {
+  border-color: var(--accent-color);
+}
+
+.searchFieldInput::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+}
+
+.submitBtn {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.submitBtn svg {
+  fill: var(--white-color);
+  stroke: var(--dark-color);
+  transition: var(--hover-general);
+}
+
+.submitBtn:hover svg {
+  transform: scale(1.2);
+}
+
+.cancelBtn {
+  position: absolute;
+  top: 6px;
+  right: 42px;
+  width: 32px;
+  height: 32px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.cancelBtn svg {
+  stroke: var(--placeholder-color);
+  transition: var(--hover-general);
+}
+
+.cancelBtn:hover svg {
+  transform: scale(1.2);
+}
+
+@media screen and (min-width: 768px) {
+  .searchField {
+    width: 265px;
+  }
+  .searchFieldInput {
+    height: 48px;
+    padding: 14px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .searchFieldInput::placeholder {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .submitBtn {
+    top: 9px;
+  }
+  .cancelBtn {
+    top: 9px;
+  }
+}

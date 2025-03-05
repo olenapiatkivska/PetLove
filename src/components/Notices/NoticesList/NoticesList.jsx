@@ -58,18 +58,6 @@ const NoticesList = () => {
               onRemoveFavorites={handleRemoveFavorites}
             />
           ))}
-
-          {/* {notices?.map(notice => (
-            <li className={css.noticesItem} key={notice?._id}>
-              <NoticesItem
-                notice={notice}
-                setShowAttention={setShowAttention}
-                setShowFirstNotification={setShowFirstNotification}
-                onAddFavorites={handleAddFavorites}
-                onRemoveFavorites={handleRemoveFavorites}
-              />
-            </li>
-          ))} */}
         </ul>
       }
     </>

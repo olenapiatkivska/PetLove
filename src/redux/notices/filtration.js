@@ -21,7 +21,7 @@ export const fetchNotices = createAsyncThunk(
       keyword,
       category,
       species,
-      locationId,
+      location: locationId,
       page,
       sex,
       limit: 6,

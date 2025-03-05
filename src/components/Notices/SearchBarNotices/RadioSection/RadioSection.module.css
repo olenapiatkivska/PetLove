@@ -1,0 +1,63 @@
+.radioSectionWrapp {
+  width: 100%;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(38, 38, 38, 0.1);
+}
+
+.radioSectionList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radioSectionItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 30px;
+  height: 42px;
+  padding: 12px;
+  background-color: var(--white-color);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+  transition: var(--hover-general);
+}
+
+.radioSectionItem:hover {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+.radioSectionBtn {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+}
+
+.radioSectionBtn svg {
+  stroke: var(--white-color);
+}
+
+@media screen and (min-width: 768px) {
+  .radioSectionList {
+    gap: 8px;
+  }
+  .radioSectionItem {
+    height: 48px;
+    padding: 14px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}

@@ -15,6 +15,7 @@ import {
 import LoaderMain from '../../components/LoaderMain/LoaderMain.jsx';
 import PaginationGeneral from '../../components/Pagination/Pagination.jsx';
 import { fetchNotices } from '../../redux/notices/filtration.js';
+import SearchBarNotices from '../../components/Notices/SearchBarNotices/SearchBarNotices.jsx';
 
 const NoticesPage = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,10 @@ const NoticesPage = () => {
     <>
       <Container>
         <Title>Find your favorite pet</Title>
+        <SearchBarNotices
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
 
         {isLoadNotices ? <LoaderMain /> : <NoticesList />}
 

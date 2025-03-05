@@ -37,6 +37,7 @@ export const fetchSpecies = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/notices/species');
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -46,9 +47,15 @@ export const fetchSpecies = createAsyncThunk(
 
 export const fetchCities = createAsyncThunk(
   'cities/fetchAll',
-  async (_, thunkAPI) => {
+  async (keyword, thunkAPI) => {
     try {
-      const response = await axios.get('/cities');
+      if (!keyword || keyword.length < 3) {
+        throw new Error('Keyword must be at least 3 characters long');
+      }
+
+      const response = await axios.get('/cities', {
+        params: { keyword },
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

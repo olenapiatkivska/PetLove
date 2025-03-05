@@ -1,0 +1,49 @@
+.searchBarNoticeWrapp {
+  padding: 20px;
+  border-radius: 30px;
+  background-color: var(--accent-light);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.categoryGenderWrapp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.searchBarNoticesReset {
+  display: block;
+  height: 42px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--accent-color);
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: auto;
+  transition: var(--hover-general);
+}
+.searchBarNoticesReset:hover {
+  color: var(--placeholder-color);
+}
+
+@media screen and (min-width: 768px) {
+  .searchBarNoticeWrapp {
+    padding: 40px 32px;
+    margin-top: 44px;
+    margin-bottom: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .categoryGenderWrapp {
+    gap: 15px;
+  }
+}
