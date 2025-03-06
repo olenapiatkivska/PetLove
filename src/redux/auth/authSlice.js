@@ -70,11 +70,9 @@ export const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(refreshUser.pending, state => {
-        console.log('Refreshing user...');
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
-        console.log('User refreshed successfully:', payload);
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.user.phone = payload.phone;
@@ -85,8 +83,7 @@ export const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.rejected, (state, { payload }) => {
-        console.log('User refresh failed:', payload);
+      .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
       })
       .addCase(editUser.pending, state => {
@@ -109,8 +106,7 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addPet.fulfilled, (state, { payload }) => {
-        state.pets.push(payload); // Додаємо нову тварину
-        // state.pets = payload.pets;
+        state.pets.push(payload);
         state.isLoading = false;
       })
       .addCase(addPet.rejected, state => {
@@ -120,8 +116,7 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(removePet.fulfilled, (state, { payload }) => {
-        state.pets = state.pets.filter(pet => pet.id !== payload.id); // Видаляємо за ID
-        // state.pets = payload.pets;
+        state.pets = state.pets.filter(pet => pet.id !== payload.id);
         state.isLoading = false;
       })
       .addCase(removePet.rejected, state => {
