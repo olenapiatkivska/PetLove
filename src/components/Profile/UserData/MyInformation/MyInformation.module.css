@@ -1,0 +1,58 @@
+.myInformationContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 28px;
+  margin-bottom: 40px;
+}
+.myInformationTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--dark-light);
+  margin-bottom: 20px;
+}
+.myInformationList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.myInformationList li {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 12px;
+  border-radius: 30px;
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--dark-light);
+}
+
+@media screen and (min-width: 768px) {
+  .myInformationList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .myInformationList li {
+    width: 305px;
+    height: 52px;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .myInformationContainer {
+    width: 100%;
+  }
+  .myInformationList li {
+    width: 100%;
+  }
+}

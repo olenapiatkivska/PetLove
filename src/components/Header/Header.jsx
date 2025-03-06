@@ -9,6 +9,7 @@ import BurgerMenu from './BurgerMenu/BurgerMenu.jsx';
 import { useAuth } from '../../hooks/useAuth.js';
 import AuthNav from '../AuthNav/AuthNav.jsx';
 import LogoutHeader from './LogoutHeader/LogoutHeader.jsx';
+import UserProfileBtn from '../UserProfileBtn/UserProfileBtn.jsx';
 
 const Header = () => {
   const tablet = useMediaQuery({ minWidth: 768 });
@@ -36,7 +37,7 @@ const Header = () => {
             {((!isLoggedIn && !isHomePage && tablet && tabletEnd) ||
               (!isLoggedIn && desctop)) && <AuthNav />}
             {isLoggedIn && !isHomePage && tablet && <LogoutHeader />}
-            {/* {isLoggedIn && <UserProfileBtn isHomepage={isHomepage} />} */}
+            {isLoggedIn && <UserProfileBtn isHomePage={isHomePage} />}
             <BurgerMenu isHomePage={isHomePage} />
           </div>
         </div>

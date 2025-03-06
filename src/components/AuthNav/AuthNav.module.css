@@ -19,7 +19,7 @@
   line-height: 1.25;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--white-color);
   transition: var(--hover-general);
 }
 

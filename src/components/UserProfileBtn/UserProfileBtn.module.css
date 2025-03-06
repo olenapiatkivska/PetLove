@@ -1,0 +1,54 @@
+.userLinkBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 40px;
+  background-color: var(--accent-light);
+  border-radius: 50%;
+  overflow: hidden;
+  transition: var(--hover-general);
+}
+.userLinkBtn img {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.userLinkBtn svg {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+  stroke-width: 2px;
+  width: 20px;
+  height: 20px;
+}
+.userLinkBtn:hover {
+  background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .userLinkBtn {
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+    min-width: 50px;
+  }
+  .userLinkBtn svg {
+    width: 24px;
+    height: 24px;
+  }
+  .userName {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .darkColor {
+    color: var(--dark-color);
+  }
+
+  .whiteColor {
+    color: var(--white-color);
+  }
+}

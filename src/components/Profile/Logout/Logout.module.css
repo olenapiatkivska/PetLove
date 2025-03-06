@@ -1,0 +1,28 @@
+.logoutBtn {
+  display: inline-flex;
+  padding: 12px 28px;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--accent-light);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  transition: var(--hover-general);
+}
+.logoutBtn:hover {
+  background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .logoutBtn {
+    padding: 15px 35px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}

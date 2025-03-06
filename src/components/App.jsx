@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout.jsx';
 import LoaderMain from './LoaderMain/LoaderMain.jsx';
@@ -9,6 +9,7 @@ import RestrictedRoute from './RestrictedRoute.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from '../redux/auth/authSelectors.js';
 import { refreshUser } from '../redux/auth/operations.js';
+import MainScreen from './MainScreen/MainScreen.jsx';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
 const NewsPage = lazy(() => import('../pages/NewsPage/NewsPage.jsx'));
@@ -31,10 +32,18 @@ const NotFoundPage = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+  const [showMainScreen, setShowMainScreen] = useState(true);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  const isLoginOrRegisterPage =
+    window.location.pathname === '/login' ||
+    window.location.pathname === '/register';
+  if (showMainScreen && !isLoginOrRegisterPage) {
+    return <MainScreen onFinish={() => setShowMainScreen(false)} />;
+  }
 
   return isRefreshing ? (
     <LoaderMain />

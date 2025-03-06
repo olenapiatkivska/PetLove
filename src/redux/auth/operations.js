@@ -2,8 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-// axios.defaults.baseURL = import.meta.env.VITE_REACT_APP_BASE_URL;
-axios.defaults.baseURL = 'https://petlove.b.goit.study/api';
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -93,7 +92,7 @@ export const editUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.patch('/users/current/edit');
+      const res = await axios.patch('/users/current/edit', credentials);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -1,0 +1,45 @@
+.userAndEditBtnsBox {
+  display: flex;
+  justify-content: space-between;
+}
+.userBox {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  gap: 4px;
+  border-radius: 30px;
+  background-color: var(--accent-color);
+}
+
+.userBox p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+  color: var(--white-color);
+}
+.userBox svg {
+  fill: var(--white-color);
+  stroke-width: 2px;
+  stroke: var(--white-color);
+}
+.editBtn {
+  display: inline-flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--accent-light);
+  transition: var(--hover-general);
+}
+
+.editBtn svg {
+  fill: none;
+  stroke-width: 1.5px;
+  stroke: #f6b83d;
+}
+.editBtn:hover {
+  background-color: var(--hover-color);
+}
