@@ -69,7 +69,7 @@ function App() {
             <Route
               path="add-pet"
               element={
-                <PrivateRoute redirecTo="/home" component={<AddPetPage />} />
+                <PrivateRoute redirecTo="/home" component={AddPetPage} />
               }
             />
             <Route

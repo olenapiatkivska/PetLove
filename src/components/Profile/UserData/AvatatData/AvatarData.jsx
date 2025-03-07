@@ -4,6 +4,7 @@ import css from './AvatarData.module.css';
 
 const AvatarData = ({ setShowEditForm }) => {
   const { user } = useAuth();
+
   return (
     <>
       <div className={css.avatarDataBox}>

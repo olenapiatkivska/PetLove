@@ -4,6 +4,8 @@
   justify-content: center;
   min-height: 40px;
   min-width: 40px;
+  width: 40px;
+  height: 40px;
   background-color: var(--accent-light);
   border-radius: 50%;
   overflow: hidden;

@@ -1,0 +1,54 @@
+.myPetsTitleWrapp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.myPetsTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--dark-light);
+}
+.myPetsTitleLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 30px;
+  width: 103px;
+  height: 38px;
+  background-color: var(--accent-color);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--white-color);
+  transition: var(--hover-general);
+}
+.myPetsTitleLink svg {
+  stroke-width: 1.5px;
+  stroke: var(--white-color);
+  transition: var(--hover-general);
+}
+
+.myPetsTitleLink:hover svg {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .myPetsTitleWrapp {
+    margin-bottom: 80px;
+  }
+  .myPetsTitle {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .myPetsTitleLink {
+    width: 118px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
