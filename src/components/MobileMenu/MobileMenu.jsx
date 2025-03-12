@@ -6,10 +6,8 @@ import AuthNav from '../AuthNav/AuthNav.jsx';
 import { useAuth } from '../../hooks/useAuth.js';
 import { useState } from 'react';
 import ModalLogout from '../Profile/ModalLogout/ModalLogout.jsx';
-import { useMediaQuery } from 'react-responsive';
 
 const MobileMenu = ({ setIsShowMobileMenu, isHomePage }) => {
-  const tablet = useMediaQuery({ minWidth: 768 });
   const { isLoggedIn } = useAuth();
   const [showLogout, setShowLogout] = useState(false);
 
@@ -38,7 +36,7 @@ const MobileMenu = ({ setIsShowMobileMenu, isHomePage }) => {
             setIsShowMobileMenu={setIsShowMobileMenu}
           />
 
-          {isLoggedIn && !tablet ? (
+          {isLoggedIn ? (
             <button
               className={css.logoutBtn}
               type="button"

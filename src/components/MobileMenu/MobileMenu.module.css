@@ -64,7 +64,7 @@
     width: 36px;
     height: 36px;
   }
-  /* .logoutBtn {
-    display: none;
-  } */
+  .logoutBtn {
+    width: 200px;
+  }
 }

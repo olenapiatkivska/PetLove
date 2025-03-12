@@ -71,6 +71,7 @@ export const AddToFavorites = createAsyncThunk(
     try {
       setAuthHeader(persistedToken);
       const response = await axios.post(`/notices/favorites/add/${id}`);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -86,6 +87,7 @@ export const RemoveToFavorites = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
+
       const response = await axios.delete(`/notices/favorites/remove/${id}`);
       return response.data;
     } catch (error) {

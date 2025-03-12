@@ -20,7 +20,7 @@ export const fetchNotices = createAsyncThunk(
       keyword,
       category,
       species,
-      location: locationId,
+      locationId,
       page,
       sex,
       limit: 6,
@@ -41,6 +41,7 @@ export const fetchNotices = createAsyncThunk(
 
     try {
       const response = await axios.get('/notices', { params: queryParams });
+
       return response.data;
     } catch (error) {
       return thukAPI.rejectWithValue(error.message);

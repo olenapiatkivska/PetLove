@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { selectNotices } from '../../../redux/notices/noticesSelectors.js';
 import NoticesItem from '../NoticesItem/NoticesItem.jsx';
 import { useState } from 'react';
@@ -9,19 +9,24 @@ import {
 import ModalAttention from '../ModalAttention/ModalAttention.jsx';
 import FirstItemNotification from '../FirstItemNotification/FirstItemNotification.jsx';
 import css from './NoticesList.module.css';
+import { refreshUser } from '../../../redux/auth/operations.js';
 
 const NoticesList = () => {
-  const notices = useSelector(selectNotices);
+  const notices = useSelector(selectNotices, shallowEqual);
   const dispatch = useDispatch();
   const [showAttention, setShowAttention] = useState(false);
   const [showFirstNotification, setShowFirstNotification] = useState(false);
 
   const handleAddFavorites = id => {
-    dispatch(AddToFavorites(id));
+    dispatch(AddToFavorites(id)).then(() => {
+      dispatch(refreshUser());
+    });
   };
 
   const handleRemoveFavorites = id => {
-    dispatch(RemoveToFavorites(id));
+    dispatch(RemoveToFavorites(id)).then(() => {
+      dispatch(refreshUser());
+    });
   };
 
   return (
@@ -40,13 +45,11 @@ const NoticesList = () => {
         />
       )}
 
-      {notices?.length === 0 && (
+      {notices?.length === 0 ? (
         <p>
           Sorry, <b>no find</b> any notice for these search parameters!
         </p>
-      )}
-
-      {
+      ) : (
         <ul className={css.noticesList}>
           {notices?.map(notice => (
             <NoticesItem
@@ -59,7 +62,7 @@ const NoticesList = () => {
             />
           ))}
         </ul>
-      }
+      )}
     </>
   );
 };

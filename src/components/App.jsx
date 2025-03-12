@@ -60,7 +60,7 @@ function App() {
             <Route
               path="profile"
               element={
-                <PrivateRoute redirecTo="/home" component={ProfilePage} />
+                <PrivateRoute redirectTo="/home" component={ProfilePage} />
               }
             >
               <Route path="favorites" element={<Favorites />} />
@@ -69,7 +69,7 @@ function App() {
             <Route
               path="add-pet"
               element={
-                <PrivateRoute redirecTo="/home" component={AddPetPage} />
+                <PrivateRoute redirectTo="/home" component={AddPetPage} />
               }
             />
             <Route

@@ -34,9 +34,16 @@ const NoticesItem = ({
     _id,
   } = notice;
   const { isLoggedIn, favoritesNotices } = useAuth();
+  // const [isFavorite, setIsFavorite] = useState(
+  //   favoritesNotices?.find(fav => (fav._id === _id ? true : false)),
+  // );
   const [isFavorite, setIsFavorite] = useState(
-    favoritesNotices?.find(fav => (fav._id === _id ? true : false)),
+    favoritesNotices?.some(fav => fav._id === _id),
   );
+  // І додати useEffect для оновлення стану
+  useEffect(() => {
+    setIsFavorite(favoritesNotices?.some(fav => fav._id === _id));
+  }, [favoritesNotices, _id]);
 
   const formattedDate = formatBirthday(birthday);
 
@@ -99,11 +106,7 @@ const NoticesItem = ({
         className={`${css.noticesItem} ${isViewedPage ? css.viewedPage : ''}`}
       >
         <div>
-          <div
-            className={`${css.noticesItemImgWrapp} ${
-              isViewedPage ? css.viewedPage : ''
-            }`}
-          >
+          <div className={css.noticesItemImgWrapp}>
             <img src={imgURL} width={287} height={178} alt={title} />
           </div>
           <div className={css.titlePopularityWrapp}>
@@ -137,19 +140,26 @@ const NoticesItem = ({
             >
               Learn more
             </button>
-            <button
-              className={css.noticesItemFavorite}
-              type="button"
-              onClick={isFavorite ? handleRemoveFavorites : handleAddFavorites}
-            >
-              <svg width={18} height={18}>
-                <use
-                  href={
-                    isFavorite ? `${sprite}#icon-trash` : `${sprite}#icon-heart`
-                  }
-                />
-              </svg>
-            </button>
+
+            {!isViewedPage && (
+              <button
+                className={css.noticesItemFavorite}
+                type="button"
+                onClick={
+                  isFavorite ? handleRemoveFavorites : handleAddFavorites
+                }
+              >
+                <svg width={18} height={18}>
+                  <use
+                    href={
+                      isFavorite
+                        ? `${sprite}#icon-trash`
+                        : `${sprite}#icon-heart`
+                    }
+                  />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       </li>

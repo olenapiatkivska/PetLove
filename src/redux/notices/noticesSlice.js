@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchNotices } from './filtration.js';
 import {
+  AddToFavorites,
   fetchCategories,
   fetchCities,
   fetchGenders,
@@ -29,7 +30,8 @@ export const noticesSlice = createSlice({
         state.isError = false;
       })
       .addCase(fetchNotices.fulfilled, (state, { payload }) => {
-        state.list = payload.results;
+        state.list = payload.results.length > 0 ? payload.results : [];
+        // state.list = payload.results;
         state.totalPages = payload.totalPages;
         state.isLoading = false;
         state.isError = false;
@@ -89,6 +91,14 @@ export const noticesSlice = createSlice({
       .addCase(fetchCities.rejected, state => {
         state.isLoading = false;
         state.isError = true;
+      })
+      .addCase(AddToFavorites.fulfilled, (state, { payload }) => {
+        const noticeIndex = state.list.findIndex(
+          notice => notice._id === payload.noticeId,
+        );
+        if (noticeIndex !== -1) {
+          state.list[noticeIndex].isFavorite = true;
+        }
       });
   },
 });
