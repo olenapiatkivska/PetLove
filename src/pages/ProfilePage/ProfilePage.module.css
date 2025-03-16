@@ -1,13 +1,9 @@
-.profilePageContainer {
-}
 .profilePageUserWrapp {
   padding: 18px 20px;
   border-radius: 30px;
   background-color: var(--white-color);
 }
 @media screen and (min-width: 768px) {
-  .profilePageContainer {
-  }
   .profilePageUserWrapp {
     padding: 40px;
   }

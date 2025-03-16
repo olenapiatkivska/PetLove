@@ -1,0 +1,20 @@
+.petsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .petsList {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .petsList {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+}

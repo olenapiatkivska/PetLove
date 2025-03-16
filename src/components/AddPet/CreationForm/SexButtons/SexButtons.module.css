@@ -1,0 +1,108 @@
+.setBtnList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.setBtnList li {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: var(--hover-general);
+}
+
+.female {
+  background-color: rgba(244, 63, 94, 0.1);
+}
+
+.femaleActive {
+  background-color: #f43f5e;
+}
+.female svg {
+  fill: none;
+  stroke: #f43f5e;
+  transition: var(--hover-general);
+}
+
+.femaleActive svg {
+  fill: none;
+  stroke: var(--white-color);
+}
+
+.female:hover {
+  background-color: #f43f5e;
+}
+
+.female:hover svg {
+  stroke: var(--white-color);
+}
+
+.male {
+  background-color: rgba(84, 173, 255, 0.1);
+}
+
+.maleActive {
+  background-color: #54adff;
+}
+
+.male svg {
+  fill: none;
+  stroke: #54adff;
+  transition: var(--hover-general);
+}
+
+.maleActive svg {
+  stroke: var(--white-color);
+  fill: none;
+}
+
+.male:hover {
+  background-color: #54adff;
+}
+
+.male:hover svg {
+  stroke: var(--white-color);
+}
+
+.multiple {
+  background-color: var(--accent-light);
+}
+
+.multipleActive {
+  background-color: var(--accent-color);
+}
+
+.multiple svg {
+  fill: none;
+  transition: var(--hover-general);
+}
+
+.multipleActive svg {
+  fill: var(--white-color);
+}
+
+.multiple svg {
+  fill: var(--accent-color);
+}
+
+.multiple:hover {
+  background-color: var(--accent-color);
+}
+
+.multiple:hover svg {
+  fill: var(--white-color);
+}
+
+@media screen and (min-width: 768px) {
+  .setBtnList {
+    margin-bottom: 0px;
+  }
+  .setBtnList li {
+    width: 40px;
+    height: 40px;
+  }
+}

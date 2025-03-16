@@ -1,0 +1,40 @@
+.petAvatarWrapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.petAvatarBox {
+  display: flex;
+  width: 68px;
+  height: 68px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--accent-light);
+  border-radius: 50%;
+}
+.petAvatarBox img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.petAvatarBox svg {
+  fill: var(--accent-color);
+  width: 34px;
+  height: 34px;
+}
+
+@media screen and (min-width: 768px) {
+  .petAvatarWrapp {
+    margin-bottom: 12px;
+  }
+  .petAvatarBox {
+    width: 86px;
+    height: 86px;
+  }
+  .petAvatarBox svg {
+    width: 44px;
+    height: 44px;
+  }
+}

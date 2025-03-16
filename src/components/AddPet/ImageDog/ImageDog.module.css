@@ -1,0 +1,53 @@
+.imageDogWrapp {
+  position: relative;
+  border-radius: 30px;
+  background-color: var(--accent-color);
+  overflow: hidden;
+}
+.imageDogWrapp picture {
+  position: relative;
+  z-index: 1;
+}
+.imageDogWrapp img {
+  position: relative;
+  left: 6%;
+}
+.imageDogWrapp svg {
+  position: absolute;
+  bottom: -16px;
+  left: 11px;
+  transform: scale(1.6);
+  z-index: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .imageDogWrapp {
+    border-radius: 60px;
+  }
+  .imageDogWrapp img {
+    left: 30%;
+  }
+  .imageDogWrapp svg {
+    transform: scale(2.8);
+    bottom: -82px;
+    left: 223px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .imageDogWrapp {
+    width: 592px;
+    height: 654px;
+  }
+  .imageDogWrapp picture {
+    right: unset;
+    left: -132px;
+    bottom: -8px;
+  }
+  .imageDogWrapp svg {
+    transform: scale(4);
+    bottom: unset;
+    top: 278px;
+    left: 134px;
+  }
+}

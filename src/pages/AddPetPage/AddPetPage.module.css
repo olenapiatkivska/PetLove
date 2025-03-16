@@ -1,0 +1,30 @@
+.addPetPageWrapp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.addPetPageForm {
+  border-radius: 30px;
+  background-color: var(--white-color);
+  padding: 28px 20px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .addPetPageWrapp {
+    gap: 16px;
+  }
+  .addPetPageForm {
+    border-radius: 60px;
+    padding: 40px 136px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .addPetPageWrapp {
+    flex-direction: row;
+    gap: 32px;
+  }
+  .addPetPageForm {
+    padding: 60px 80px;
+  }
+}

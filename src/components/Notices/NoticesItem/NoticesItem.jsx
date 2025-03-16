@@ -40,7 +40,7 @@ const NoticesItem = ({
   const [isFavorite, setIsFavorite] = useState(
     favoritesNotices?.some(fav => fav._id === _id),
   );
-  // І додати useEffect для оновлення стану
+
   useEffect(() => {
     setIsFavorite(favoritesNotices?.some(fav => fav._id === _id));
   }, [favoritesNotices, _id]);

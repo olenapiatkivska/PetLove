@@ -1,0 +1,45 @@
+.notFoundImgWrapp {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+}
+.notFoundPictureWrapp {
+  width: 109px;
+  height: 109px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.notFoundPictureWrapp picture {
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .notFoundIcon svg {
+    width: 175px;
+    height: 300px;
+  }
+  .notFoundPictureWrapp {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .notFoundIcon svg {
+    width: 185px;
+  }
+  .notFoundPictureWrapp {
+    width: 300px;
+    height: 300px;
+  }
+  .notFoundPictureWrapp picture {
+    object-position: -20px;
+  }
+  .notFoundPictureWrapp img {
+    width: 300px;
+    height: 300px;
+  }
+}

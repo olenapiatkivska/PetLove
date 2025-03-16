@@ -42,8 +42,6 @@ const SearchBarNotices = ({ currentPage, setCurrentPage }) => {
     radioSearch,
   ]);
 
-  console.log('Поточне значення locationQuery:', locationQuery);
-
   const handleResetSearch = () => {
     setInputValue('');
     setTextQuery('');
@@ -54,10 +52,6 @@ const SearchBarNotices = ({ currentPage, setCurrentPage }) => {
     setRadioSearch(null);
     setCurrentPage(1);
   };
-
-  // console.log('Відправляємо запит з параметрами:', {
-  //   locationId: locationQuery,
-  // });
 
   return (
     <>

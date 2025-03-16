@@ -203,12 +203,9 @@ const SearchLocation = ({
   };
 
   const handleChangeLocation = selectedOption => {
-    // setLocationQuery(selectedOption ? selectedOption.value : null);
+  
     setLocationQuery(selectedOption ? selectedOption.value : '');
-    // console.log(
-    //   'Вибрана локація ID:',
-    //   selectedOption ? selectedOption.value : null,
-    // );
+  
     if (selectedOption) {
       setCurrentPage(1);
     }
@@ -217,9 +214,7 @@ const SearchLocation = ({
   const selectValue =
     options.find(option => option.value === locationQuery) || null;
 
-  // useEffect(() => {
-  //   console.log('Поточне значення locationQuery:', locationQuery);
-  // }, [locationQuery]);
+ 
 
   const customStyles = {
     control: (baseStyles, { isFocused, hasValue }) => ({

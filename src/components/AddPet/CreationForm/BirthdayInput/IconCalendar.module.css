@@ -1,0 +1,20 @@
+.iconCalendar {
+  fill: none;
+  stroke: var(--dark-color);
+  width: 18px;
+  height: 18px;
+  transition: var(--hover-general);
+}
+
+.iconCalendar:hover,
+.iconCalendar:focus {
+  fill: none;
+  stroke: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .iconCalendar {
+    width: 20px;
+    height: 20px;
+  }
+}

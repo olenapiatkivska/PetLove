@@ -85,7 +85,11 @@ const FormEditUser = ({ setImageUrl, setShowEditForm }) => {
               {...register('avatar')}
               defaultValue={user?.avatar || 'Avatar URL'}
             />
-            {errors.name && <span>{errors.avatar?.message}</span>}
+            {errors.name && (
+              <span className={css.errorsFormEditUserAvatar}>
+                {errors.avatar?.message}
+              </span>
+            )}
           </label>
 
           <label className={css.avatarFileLabel}>
@@ -107,7 +111,9 @@ const FormEditUser = ({ setImageUrl, setShowEditForm }) => {
           {...register('name')}
           defaultValue={user.name}
         />
-        {errors.name && <span>{errors.name?.message}</span>}
+        {errors.name && (
+          <span className={css.errorsFormEditUser}>{errors.name?.message}</span>
+        )}
 
         <input
           className={css.formEditUInput}
@@ -115,7 +121,11 @@ const FormEditUser = ({ setImageUrl, setShowEditForm }) => {
           {...register('email')}
           defaultValue={user.email}
         />
-        {errors.email && <span>{errors.email?.message}</span>}
+        {errors.email && (
+          <span className={css.errorsFormEditUser}>
+            {errors.email?.message}
+          </span>
+        )}
 
         <input
           className={css.formEditUInput}
@@ -123,7 +133,11 @@ const FormEditUser = ({ setImageUrl, setShowEditForm }) => {
           {...register('phone')}
           defaultValue={user?.phone || '+380'}
         />
-        {errors.phone && <span>{errors.phone?.message}</span>}
+        {errors.phone && (
+          <span className={css.errorsFormEditUser}>
+            {errors.phone?.message}
+          </span>
+        )}
 
         <button className={css.formEditBtn} type="submit">
           Save

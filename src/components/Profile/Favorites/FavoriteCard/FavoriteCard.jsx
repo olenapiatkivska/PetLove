@@ -6,35 +6,6 @@ import css from './FavoriteCard.module.css';
 import { useAuth } from '../../../../hooks/useAuth.js';
 
 const FavoriteCard = ({ notice, onRemoveFavorites }) => {
-  //   const { favoritesNotices } = useAuth();
-  //   const [showDetails, setShowDetails] = useState(false);
-  //   const {
-  //     imgURL,
-  //     name,
-  //     title,
-  //     birthday,
-  //     sex,
-  //     species,
-  //     popularity,
-  //     comment,
-  //     category,
-  //     price,
-  //     _id,
-  //   } = notice;
-  //   const [isFavorite, setIsFavorite] = useState(
-  //     favorites?.find(fav => (fav._id === _id ? true : false)),
-  //   );
-
-  //   const formattedDate = formatBirthday(birthday);
-
-  //   const details = [
-  //     { label: 'Name', value: name },
-  //     { label: 'Birthday', value: formattedDate },
-  //     { label: 'Sex', value: sex },
-  //     { label: 'Species', value: species },
-  //     { label: 'Category', value: category },
-  //   ];
-
   const [showDetails, setShowDetails] = useState(false);
   const { favoritesNotices } = useAuth();
 
@@ -53,7 +24,7 @@ const FavoriteCard = ({ notice, onRemoveFavorites }) => {
   } = notice;
 
   const formattedDate = formatBirthday(birthday);
-  const isFavorite = favoritesNotices.some(fav => fav._id === _id); // Перевіряємо у Redux-стані
+  const isFavorite = favoritesNotices.some(fav => fav._id === _id);
 
   const details = [
     { label: 'Name', value: name },

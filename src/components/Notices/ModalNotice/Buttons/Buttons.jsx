@@ -44,7 +44,7 @@ const Buttons = ({
         </button>
         <a
           className={css.btnContact}
-          src={'mailto:biggest5family@gmail.com'}
+          href={'mailto:biggest5family@gmail.com'}
           target="_blank"
         >
           Contact

@@ -1,0 +1,107 @@
+.petInfoItem {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid var(--pets-cards);
+}
+.petInfoImgWrapp {
+  min-width: 66px;
+  min-height: 66px;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.petInfoImgWrapp img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.petInfoTitle {
+  max-width: 153px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #2b2b2a;
+  margin-bottom: 8px;
+}
+
+.petItemBtnDelete {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  padding: 7px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: var(--accent-light);
+  transition: var(--hover-general);
+}
+.petItemBtnDelete svg {
+  fill: none;
+  stroke: var(--accent-color);
+  width: 16px;
+  height: 16px;
+}
+.petItemBtnDelete:hover {
+  background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .petInfoItem {
+    width: 305px;
+    padding: 22px 16px;
+  }
+  .petInfoImgWrapp {
+    min-width: 75px;
+    min-height: 75px;
+    width: 75px;
+    height: 75px;
+  }
+
+  .petItemBtnDelete {
+    width: 32px;
+    height: 32px;
+  }
+  .petItemBtnDelete svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .petInfoItem {
+    width: 100%;
+    padding: 20px;
+    gap: 25px;
+  }
+  .petInfoImgWrapp {
+    min-width: 90px;
+    min-height: 90px;
+    width: 90px;
+    height: 90px;
+  }
+  .petInfoTitle {
+    max-width: 240px;
+    margin-bottom: 12px;
+  }
+
+  .petItemBtnDelete {
+    width: 38px;
+    height: 38px;
+    padding: 10px;
+  }
+}

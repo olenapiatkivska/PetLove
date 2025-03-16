@@ -18,12 +18,6 @@ const ProfilePage = () => {
     }
   }, [location.pathname, navigate]);
 
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, []);
-
   return (
     <>
       <Container>

@@ -106,7 +106,7 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addPet.fulfilled, (state, { payload }) => {
-        state.pets.push(payload);
+        state.pets = payload.pets;
         state.isLoading = false;
       })
       .addCase(addPet.rejected, state => {
@@ -116,7 +116,7 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(removePet.fulfilled, (state, { payload }) => {
-        state.pets = state.pets.filter(pet => pet.id !== payload.id);
+        state.pets = payload.pets;
         state.isLoading = false;
       })
       .addCase(removePet.rejected, state => {
